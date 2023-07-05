@@ -1,0 +1,68 @@
+
+1) mysql> SELECT*FROM employees;
+
+2) mysql> SELECT*FROM employees WHERE first_name = "David";
+
+3) mysql> SELECT * FROM employees WHERE department_id = 2 OR department_id = 4;
+
+4) mysql> select*from employees WHERE department_id = '2' AND commision_cpt !=1;
+
+5) mysql> select*from employees WHERE DAY(hire_date) = '1';
+
+6) mysql> select*from employees where year(hire_date) = '2020';
+
+7) mysql> SELECT CONCAT(first_name, ' - Hire Date "', 
+    ->              DATE_FORMAT(hire_date, '%e of %M %Y'), '"') AS record
+    -> FROM employees;
+
+8) mysql> SELECT CONCAT ("$", salary + (salary/100)*20, ' have salary',' ', first_name) from employees;
+
+
+SELECT * FROM Employees WHERE YEAR(hire_date) = 2008;
+To display tomorrow's date in the format "Tomorrow is the Second day of January":
+sql
+Copy code
+SELECT CONCAT('Tomorrow is the ', DAYNAME(DATE_ADD(CURDATE(), INTERVAL 1 DAY)), ' day of ', MONTHNAME(DATE_ADD(CURDATE(), INTERVAL 1 DAY))) AS tomorrow_date FROM DUAL;
+To get a list of all employees and their hire dates in the format "21st of June, 2007":
+sql
+Copy code
+SELECT CONCAT(DAY(hire_date), CASE
+    WHEN DAY(hire_date) IN (1, 21, 31) THEN 'st'
+    WHEN DAY(hire_date) IN (2, 22) THEN 'nd'
+    WHEN DAY(hire_date) IN (3, 23) THEN 'rd'
+    ELSE 'th'
+END, ' of ', MONTHNAME(hire_date), ', ', YEAR(hire_date)) AS hire_date_format FROM Employees;
+To get a list of employees with their salaries increased by 20% and display the salary with a dollar sign:
+sql
+Copy code
+SELECT CONCAT('$ ', FORMAT(salary * 1.2, 2)) AS increased_salary FROM Employees;
+To get a list of all employees who started working in February 2007:
+sql
+Copy code
+SELECT * FROM Employees WHERE YEAR(hire_date) = 2007 AND MONTH(hire_date) = 2;
+To display the current date, along with the date and time after adding a second, minute, hour, day, month, and year:
+sql
+Copy code
+SELECT 
+  CURDATE() AS current_date,
+  DATE_ADD(CURDATE(), INTERVAL 1 SECOND) AS after_second,
+  DATE_ADD(CURDATE(), INTERVAL 1 MINUTE) AS after_minute,
+  DATE_ADD(CURDATE(), INTERVAL 1 HOUR) AS after_hour,
+  DATE_ADD(CURDATE(), INTERVAL 1 DAY) AS after_day,
+  DATE_ADD(CURDATE(), INTERVAL 1 MONTH) AS after_month,
+  DATE_ADD(CURDATE(), INTERVAL 1 YEAR) AS after_year
+FROM DUAL;
+To get a list of all employees with their total salaries (salary + commission_pct) in the format: $24,000.00:
+sql
+Copy code
+SELECT CONCAT('$ ', FORMAT(salary + (salary * commission_pct / 100), 2)) AS total_salary FROM Employees;
+To get a list of all employees and information about the presence of bonuses in their salary (Yes/No):
+sql
+Copy code
+SELECT
+  *,
+  CASE
+    WHEN commision_pct > 0 THEN 'Yes'
+    ELSE 'No'
+  END AS has_bonus
+FROM Employees;
