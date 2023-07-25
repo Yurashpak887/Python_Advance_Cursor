@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="20e743f2-0c10-41a8-9cd6-7b6663ef1e83" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../pythonProject10/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProject10/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProject8.lybchuk/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProject8.lybchuk/app.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProject8.lybchuk/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProject8.lybchuk/docker/python/dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProject8.lybchuk/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProject8.lybchuk/routes/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProject8.lybchuk/routes/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/python/dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/plants.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/salons.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/add_plant.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/add_saloon.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pythonProject/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pythonProject/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pythonProject2-dz/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pythonProject2-dz/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pythonProject2-dz/toyota.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pythonProject2-dz/toyota.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pythonProject2/database/employee.json" beforeDir="false" afterPath="$PROJECT_DIR$/../pythonProject2/database/employee.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pythonProject2/database/plants.json" beforeDir="false" afterPath="$PROJECT_DIR$/../pythonProject2/database/plants.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pythonProject2/database/salons.json" beforeDir="false" afterPath="$PROJECT_DIR$/../pythonProject2/database/salons.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pythonProject2/framework/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pythonProject2/framework/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pythonProject2/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pythonProject2/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pythonProject2/models/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pythonProject2/models/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pythonProject3.1/database/employee.json" beforeDir="false" afterPath="$PROJECT_DIR$/../pythonProject3.1/database/employee.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pythonProject3.1/database/plants.json" beforeDir="false" afterPath="$PROJECT_DIR$/../pythonProject3.1/database/plants.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pythonProject3.1/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pythonProject3.1/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pythonProject3.1/models/framework.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pythonProject3.1/models/framework.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pythonProject3dz/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pythonProject3dz/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pythonProject3dz/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pythonProject3dz/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pythonProject6.1/Docker/Docker/Python/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../pythonProject6.1/Docker/Docker/Python/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pythonProject6.1/Docker/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pythonProject6.1/Docker/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pythonProject6.1/Docker/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../pythonProject6.1/Docker/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pythonProject6/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../pythonProject6/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pythonProject6/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pythonProject6/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pythonProject8.1/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pythonProject8.1/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pythonProject8/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pythonProject8/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pythonProject9/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pythonProject9/statapi/methods.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pythonProject9/statapi/methods.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2Sq9E2VPF3URu1miBOVvuMkhZu9" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/yurashpak/PycharmProjects/pythonProject9.1-lybchuk",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static/css" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Flask server.Flask (app.py)">
+    <configuration name="pythonProject9.1-lybchuk" type="PythonConfigurationType" factoryName="Python">
+      <module name="pythonProject9.1-lybchuk" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Flask (app.py)" type="Python.FlaskServer" temporary="true" nameIsGenerated="true">
+      <module name="pythonProject9.1-lybchuk" />
+      <option name="target" value="$PROJECT_DIR$/app.py" />
+      <option name="targetType" value="PATH" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Flask server.Flask (app.py)" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="20e743f2-0c10-41a8-9cd6-7b6663ef1e83" name="Changes" comment="" />
+      <created>1689863128610</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1689863128610</updated>
+      <workItem from="1689863129623" duration="24603000" />
+      <workItem from="1690291028333" duration="1158000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/pythonProject9_1_lybchuk$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1690287860838" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+  </component>
+</project>

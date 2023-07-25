@@ -1,0 +1,13 @@
+.plans_container{
+    display:flex;
+    justify-content: space-between;
+}
+
+.card{
+    width: 18%;
+}
+
+.salons_container{
+    display:flex;
+    justify-content: space-between;
+}

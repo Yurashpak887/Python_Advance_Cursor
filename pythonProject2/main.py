@@ -1,16 +1,54 @@
-# This is a sample Python script.
+from models.models import Plant, Employee, Saloon
+while True:
+    print("1. Add new plant\n2.Get all plant's \n 3. Get plant by id \n 4. New employee \n 5. Get all employees"
+          "s\n6. Get empl by id \n7. New salon\n8. Get all saloon. \n9. Get salon by id ")
+    flag = int(input("Choose menu item"))
+    if flag == 1:
+        name = input("name:")
+        location = input("Location")
+        plant = Plant(name, location)
+        plant.save()
+    elif flag == 2:
+        Plant.get_all()
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+    elif flag == 3:
+        id = int(input("Get id?"))
+        plant = Plant.get_by_id(id)
+        Plant.print_object([plant])
 
+    elif flag == 4:
+        name = input("Name employee")
+        object_id = input("Employee work id")
+        type_of_work = input("Type of work?")
+        employee = Employee(name, object_id, type_of_work)
+        employee.save()
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+    elif flag == 5:
+        Employee.get_all()
 
+    elif flag == 6:
+        id = int(input("Type id to search"))
+        emp = Employee.get_by_id(id)
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+    elif flag == 7:
+        name = input("Name salon")
+        address = input("Address ")
+        size = input("Size")
+        salon = Saloon(name, address, size)
+        salon.save()
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    elif flag == 8:
+        Saloon.get_all()
+
+    elif flag == 9:
+        id = int(input("Input id:"))
+        salon = Saloon.get_by_id(id)
+        Saloon.print_object([salon])
+
+    elif flag ==10:
+        employees = Employee.get_employees_in_salons_and_plants()
+        if len(employees) > 0:
+            print("Employees in salons and plants:")
+            Employee.print_object(employees)
+        else:
+            print("No employees found in salons and plants.")

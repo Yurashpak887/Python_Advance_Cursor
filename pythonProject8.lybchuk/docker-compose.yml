@@ -1,0 +1,11 @@
+version: "3"
+services:
+  web:
+    build:
+      dockerfile: ./docker/python/dockerfile
+      context: ./
+    image: my_flask_app  # Замініть 'my_flask_app' на бажане ім'я вашого образу
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/code
