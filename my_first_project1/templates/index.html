@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include "header.html" %}
+<body>
+{% include "menu_bar.html" %}
+
+
+<div class="container">
+    <div class="car-list">
+        {% for car in cars %}
+        <div class="car-card">
+            <img src="{{ car.image_url }}" alt="{{ car.model }}" class="car-image">
+            <div class="car-details">
+                <h3 class="car-title">{{ car.make }} {{ car.model }}</h3>
+                <p class="car-price">${{ car.price }}</p>
+                <p class="car-description">{{ car.description }}</p>
+                <ul class="car-features">
+                    <li>{{ car.year }}</li>
+                    <li>{{ car.mileage }} miles</li>
+                    <li>{{ car.engine }}</li>
+                </ul>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+</body>
+</html>

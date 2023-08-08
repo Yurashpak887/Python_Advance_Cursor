@@ -2,7 +2,7 @@ from app import app
 from flask import render_template, request, redirect
 
 
-@app.route('/addsaloon')
+@app.route('/add_saloon')
 def addsaloon():
     return render_template('add_saloon.html')
 

@@ -11,13 +11,10 @@ migrate = Migrate(app, db)
 
 with app.app_context():
     from routes.main import *
-    from routes.plants import *
-    from routes.salons import *
-    from routes.employees import *
+    from routes.blog import *
+    from routes.add_car import *
+    from routes.user_dashboard import *
 
-# Реєстрація моделей
-from models.models import Plant, Employee, User
-
-
+from models.models import Car
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)

@@ -1,62 +1,33 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href ='/static/css/style.css' rel="stylesheet">
-    <title>Our firms</title>
-  </head>
-  <body>
+{% include "head.html" %}
+<body>
 
 
- <div class="container">
-     <h1>Hello, user!</h1>
-     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand" href="/">Home</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-
-              <li class="nav-item">
-                <a class="nav-link" href="/addplant">Add plant </a>
-              </li>
-
-              <li class="nav-item active">
-                <a class="nav-link" href="/addsaloon">Add salon <span class="sr-only">(current)</span></a>
-              <!--<li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-              </li> -->
-            </ul>
-          </div>
-</nav>
 <div class="container">
-  <form action="/save-saloon" method="post">
-    <div class="form-group">
-      <label for="name">Name</label>
-      <input type="text" class="form-control" id="name" name="name" placeholder="Toyota">
-    </div>
-    <div class="form-group">
-      <label for="location">Location</label>
-      <input type="text" class="form-control" id="location" name="location" placeholder="st.Gorodocka">
-    </div>
-      <div class="form-group">
-      <label for="size">Size</label>
-      <input type="text" class="form-control" id="size" name="size" placeholder="150">
-    </div>
+    <h1>Hello, user!</h1>
+    {% include "menu_bar.html" %}
 
-    <button type="submit" class="btn btn-primary">Save Saloon</button>
-  </form>
+    <div class="container">
+        <form action="/save-saloon" method="post">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Toyota">
+            </div>
+            <div class="form-group">
+                <label for="location">Location</label>
+                <input type="text" class="form-control" id="location" name="location" placeholder="st.Gorodocka">
+            </div>
+            <div class="form-group">
+                <label for="size">Size</label>
+                <input type="text" class="form-control" id="size" name="size" placeholder="150">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save Saloon</button>
+        </form>
+    </div>
 </div>
- </div>
 
 
-
-
-  </body>
+</body>
 </html>

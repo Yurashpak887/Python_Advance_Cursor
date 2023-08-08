@@ -1,0 +1,272 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    font-family: 'Roboto', sans-serif; /* Застосовуємо шрифт */
+}
+
+.logo {
+    font-size: 1.5rem;
+}
+
+.menu-items {
+    display: flex;
+    gap: 20px;
+}
+
+.menu-items a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-family: 'Lato', sans-serif; /* Застосовуємо шрифт */
+}
+
+.menu-items a:hover {
+    color: #ffc107;
+}
+
+.container {
+    margin-top: 70px; /* Враховуючи висоту меню */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: auto;
+    margin: auto;
+    transition: width 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    .menu {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .menu-items {
+        margin-top: 10px;
+    }
+}
+
+
+
+.car-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+    width: 100%;
+
+}
+
+.car-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  width: 300px;
+}
+
+.car-image {
+  width: 100%;
+  height: auto;
+}
+
+.car-details {
+  padding: 10px;
+}
+
+.car-title {
+  margin-top: 0;
+}
+
+.car-price {
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.car-description {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.car-features {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #666;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+h2 {
+    margin: 20px 0;
+}
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+/* Стилі для кнопок в меню */
+.button-sign {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+     /* Вирівнюємо кнопки зправа */
+}
+
+.button-sign a {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.button-sign a:hover {
+    background-color: #ffc107;
+    color: #333;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.container_user {
+    margin-top: 70px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: auto;
+    margin: auto;
+    transition: width 0.3s ease-in-out;
+}
+
+.user-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    padding: 20px;
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-details {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.user-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-info {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.user-phone {
+    font-size: 14px;
+    color: #666;
+}
+
+.user-ads {
+    flex: 2;
+}
+
+.user-ads ul {
+    list-style: none;
+    padding: 0;
+}
+
+.user-ads li {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+/* Залиште інші стилі без змін */

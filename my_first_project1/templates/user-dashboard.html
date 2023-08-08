@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include "header.html" %}
+<body>
+{% include "menu_bar.html" %}
+
+<div class="container">
+    Hello, {{ user.name }}
+    {{user.phone_number}}
+</div>
+
+<main class="container_user">
+    <h1>User Dashboard</h1>
+
+    {% if user %}
+    <h2>Welcome, {{ user.name }}!</h2>
+
+    <section>
+        <h3>Personal Information</h3>
+        <p>Phone Number: {{ user.phone_number }}</p>
+    </section>
+
+    <section>
+        <h3>Your Ads</h3>
+        {% if user.cars %}
+        <ul>
+            {% for car in user.cars %}
+            <li>{{ car.name }} - {{ car.model }} - Price: ${{ car.price }}</li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>You haven't created any ads yet.</p>
+        {% endif %}
+    </section>
+
+    {% else %}
+    <p>You are not logged in.</p>
+    {% endif %}
+</main>
+
+</body>
+</html>

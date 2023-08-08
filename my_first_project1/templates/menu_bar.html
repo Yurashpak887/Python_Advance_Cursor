@@ -1,0 +1,29 @@
+<div class="menu">
+    <div class="logo">
+        Auto-Shpak
+    </div>
+    <div class="menu-items">
+        <a href="/">Б.у авто</a>
+        <a href="/add_car">Add Car</a>
+        <a href="#">Контактна інформація</a>
+    </div>
+
+    <div class="button-sign">
+        {% if user %}
+        Hello, {{ user.name }}
+        <a class="button-close-session" href="/session-close" type="button">Exit</a>
+        {% else %}
+        <a class="button-sign-up" href="/sign-up" type="button">Sign up</a>
+        <a class="button-login" href="/login" type="button">Login</a>
+        {% endif %}
+    </div>
+
+</div>
+
+<div class="container">
+    <!-- Тут може бути ваш контент -->
+</div>
+
+
+
+
