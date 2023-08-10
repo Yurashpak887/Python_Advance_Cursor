@@ -1,5 +1,5 @@
 from app import app, db
-from flask import render_template, request, redirect
+from flask import render_template, request, redirect, session
 from models.models import Car
 
 from werkzeug.utils import secure_filename
@@ -29,9 +29,15 @@ def add_car():
             image_path = os.path.join(UPLOAD_FOLDER, filename)
             image.save(image_path)
 
+
+
+        author_id = None
+        if 'user' in session:
+            author_id = session['user']
+
         # Збереження даних в БД
         new_car = Car(name=name, model=model, price=price, description=description,
-                      year=year, mileage=mileage, engine=engine, image_url=image_path)
+                      year=year, mileage=mileage, engine=engine, image_url=image_path, user_id = author_id)
         db.session.add(new_car)
         db.session.commit()
 

@@ -3,18 +3,24 @@
         Auto-Shpak
     </div>
     <div class="menu-items">
+
+        {% if user %}
         <a href="/">Б.у авто</a>
         <a href="/add_car">Add Car</a>
         <a href="#">Контактна інформація</a>
+        {% else %}
+            <a href="#">Контактна інформація</a>
+        {% endif %}
     </div>
 
     <div class="button-sign">
         {% if user %}
-        Hello, {{ user.name }}
-        <a class="button-close-session" href="/session-close" type="button">Exit</a>
+            Hello, {{ user.name }}
+            <a class="button-close-session" href="/session-close" type="button">Exit</a>
+            <a class="button-close-session" href="/user-dashboard" type="button">Cabinet</a>
         {% else %}
-        <a class="button-sign-up" href="/sign-up" type="button">Sign up</a>
-        <a class="button-login" href="/login" type="button">Login</a>
+            <a class="button-sign-up" href="/sign-up" type="button">Sign up</a>
+            <a class="button-login" href="/login" type="button">Login</a>
         {% endif %}
     </div>
 

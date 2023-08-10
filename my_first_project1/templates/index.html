@@ -14,6 +14,7 @@
                 <h3 class="car-title">{{ car.make }} {{ car.model }}</h3>
                 <p class="car-price">${{ car.price }}</p>
                 <p class="car-description">{{ car.description }}</p>
+                <p class="car-description">{{ car.user.name }}</p>
                 <ul class="car-features">
                     <li>{{ car.year }}</li>
                     <li>{{ car.mileage }} miles</li>
@@ -23,6 +24,7 @@
         </div>
         {% endfor %}
     </div>
+</div>
 
 
 </body>
