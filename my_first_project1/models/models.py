@@ -22,3 +22,13 @@ class User(db.Model):
 
 
 
+class Mark(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    name = db.Column(db.String(255), nullable=False, unique=True)
+    models = db.relationship('Modelcar', backref='mark', lazy=True)
+
+
+class Modelcar(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(255), nullable=False)
+    mark_id = db.Column(db.Integer, db.ForeignKey('mark.id'), nullable=False)

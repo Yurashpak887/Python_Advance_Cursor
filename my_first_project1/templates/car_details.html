@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include "header.html" %}
+<body>
+{% include "menu_bar.html" %}
+
+
+
+<div class="container">
+    <div class="car-details">
+    <img src="{{ url_for('static', filename='images/' ~ extract_filename_from_path(car.image_url)) }}" alt="Image">
+
+        <h2>{{ car.name }} {{ car.model }}</h2>
+
+        <p class="car-price">${{ car.price }}</p>
+        <p class="car-description">{{ car.description }}</p>
+        <p class="car-description">Sesller: {{ car.user.name }}</p>
+        <ul class="car-features">
+            <li>Year: {{ car.year }}</li>
+            <li>Mileage: {{ car.mileage }} miles</li>
+            <li>Engine: {{ car.engine }}</li>
+        </ul>
+
+    </div>
+</div>
+
+</body>
+</html>

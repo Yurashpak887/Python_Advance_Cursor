@@ -14,6 +14,7 @@ with app.app_context():
     from routes.blog import *
     from routes.add_car import *
     from routes.user_dashboard import *
+    from routes.car_details import *
 
 from models.models import Car
 if __name__ == "__main__":

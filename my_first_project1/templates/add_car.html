@@ -3,33 +3,96 @@
 {% include "header.html" %}
 <body>
 {% include "menu_bar.html" %}
-    <h2>Add New Car</h2>
+<h2>Add New Car</h2>
 <form action="/add_car" method="post" enctype="multipart/form-data">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required><br><br>
+    <label for="mark">Mark:</label>
+    <select id="mark" name="mark" required>
+        <option value="" disabled selected>Select Mark</option>
+        {% for mark in marks %}
+            <option value="{{ mark.id }}">{{ mark.name }}</option>
+        {% endfor %}
+    </select><br><br>
 
-        <label for="model">Model:</label>
-        <input type="text" id="model" name="model" required><br><br>
+    <label for="model">Model:</label>
+    <select id="model" name="model" required disabled>
+        <option value="" disabled selected>Select Model</option>
+    </select><br><br>
 
-        <label for="price">Price:</label>
-        <input type="number" id="price" name="price" required><br><br>
+    <script>
+        var markSelect = document.getElementById("mark");
+        var modelSelect = document.getElementById("model");
 
-        <label for="description">Description:</label>
-        <textarea id="description" name="description" rows="4" required></textarea><br><br>
+        markSelect.addEventListener("change", function () {
+            var selectedMark = this.value;
+            if (selectedMark === "") {
+                modelSelect.innerHTML = '<option value="" disabled selected>Select Model</option>';
+                modelSelect.disabled = true;
+                return;
+            }
+            fetch(`/get_models/${selectedMark}`)
+                .then(response => response.json())
+                .then(data => {
+                    updateModelSelect(data);
+                })
+                .catch(error => console.error('Error fetching models:', error));
+        });
 
-        <label for="year">Year:</label>
-        <input type="number" id="year" name="year" required><br><br>
+        function updateModelSelect(models) {
+            modelSelect.innerHTML = '<option value="" disabled selected>Select Model</option>';
+            for (var i = 0; i < models.length; i++) {
+                var model = models[i];
+                var option = document.createElement("option");
+                option.value = model.id;
+                option.textContent = model.name;
+                modelSelect.appendChild(option);
+            }
+            modelSelect.disabled = false;
+        }
+    </script>
 
-        <label for="mileage">Mileage:</label>
-        <input type="number" id="mileage" name="mileage" required><br><br>
 
-        <label for="engine">Engine:</label>
-        <input type="number" id="engine" name="engine" step="0.01" required><br><br>
+    <label for="price">Price:</label>
+    <input type="number" id="price" name="price" required><br><br>
 
-        <label for="image">Image:</label>
-        <input type="file" id="image" name="image" accept="image/*" required><br><br>
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" rows="4" required></textarea><br><br>
 
-        <button type="submit">Add Car</button>
-    </form>
+    <label for="year">Year:</label>
+    <input type="number" id="year" name="year" required><br><br>
+
+    <label for="mileage">Mileage:</label>
+    <input type="number" id="mileage" name="mileage" required><br><br>
+
+    <label for="engine">Engine:</label>
+    <input type="number" id="engine" name="engine" step="0.01" required><br><br>
+
+    <label for="image">Image:</label>
+    <input type="file" id="image" name="image" accept="image/*" required><br><br>
+
+    <button type="submit">Add Car</button>
+</form>
+
+
+<script>
+    const markSelect = document.getElementById("mark");
+    const modelSelect = document.getElementById("model");
+
+    markSelect.addEventListener("change", function () {
+        modelSelect.innerHTML = '<option value="" disabled selected>Select Model</option>';
+
+        if (markSelect.value) {
+            const selectedMarkId = markSelect.value;
+
+            // Фільтруємо моделі за вибраною маркою
+            const filteredModels = [...modelSelect.options].filter(option => option.getAttribute('data-mark') === selectedMarkId);
+
+            filteredModels.forEach(model => {
+                modelSelect.appendChild(model.cloneNode(true));
+            });
+        }
+    });
+</script>
+
+
 </body>
 </html>

@@ -6,22 +6,34 @@
 
 
 <div class="container">
+    <div class="sort-options">
+        <select onchange="location = this.value;">
+            <option value="/" class="sort-option">Сортування</option>
+            <option value="/?sort_by=price_asc" class="sort-option">Ціна (зростаюча)</option>
+            <option value="/?sort_by=price_desc" class="sort-option">Ціна (спадаюча)</option>
+            <option value="/?sort_by=date_old" class="sort-option">Дата (старі)</option>
+            <option value="/?sort_by=date_new" class="sort-option">Дата (нові)</option>
+        </select>
+    </div>
+
     <div class="car-list">
         {% for car in cars %}
-        <div class="car-card">
-            <img src="{{ car.image_url }}" alt="{{ car.model }}" class="car-image">
-            <div class="car-details">
-                <h3 class="car-title">{{ car.make }} {{ car.model }}</h3>
-                <p class="car-price">${{ car.price }}</p>
-                <p class="car-description">{{ car.description }}</p>
-                <p class="car-description">{{ car.user.name }}</p>
-                <ul class="car-features">
-                    <li>{{ car.year }}</li>
-                    <li>{{ car.mileage }} miles</li>
-                    <li>{{ car.engine }}</li>
-                </ul>
+            <div class="car-card">
+                <a href="{{ url_for('car_details', car_id=car.id) }}">
+                    <img src="{{ car.image_url }}" alt="{{ car.model }}" class="car-image">
+                    <div class="car-details">
+                        <h3 class="car-title">{{ car.name }} {{ car.model }}</h3>
+                        <p class="car-price">${{ car.price }}</p>
+                        <p class="car-description">{{ car.description }}</p>
+                        <p class="car-description">{{ car.user.name }}</p>
+                        <ul class="car-features">
+                            <li>{{ car.year }}</li>
+                            <li>{{ car.mileage }} miles</li>
+                            <li>{{ car.engine }}</li>
+                        </ul>
+                    </div>
+                </a>
             </div>
-        </div>
         {% endfor %}
     </div>
 </div>

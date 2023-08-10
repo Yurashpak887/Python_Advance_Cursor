@@ -5,6 +5,8 @@ services:
       dockerfile: ./docker/python/dockerfile
       context: ./
     image: flask_app
+    environment:
+      - PYTHONUNBUFFERED=1
     ports:
       - "5001:5000"
     volumes:

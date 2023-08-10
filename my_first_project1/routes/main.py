@@ -1,7 +1,8 @@
 from app import app, db
 from flask import render_template, request, redirect, session
-from models.models import Car, User
-
+from models.models import Car, User, Modelcar, Mark
+from helpers.helpers import *
+UPLOAD_FOLDER = './static/images'
 
 @app.context_processor
 def inject_user():
@@ -9,10 +10,7 @@ def inject_user():
     if 'user' in session:
         user = User.query.get(session['user'])
     return {'user': user}
-@app.route('/')
-def main():
-    car = Car.query.all()
-    return render_template('index.html',  cars=car)
+
 
 @app.route('/sign-up', methods=['POST', 'GET'])
 def sign_up():
@@ -48,4 +46,12 @@ def login():
             return redirect('/')
 
     return render_template('login.html')
+
+
+@app.route('/')
+def main():
+    sort_by = request.args.get('sort_by', 'price_asc')
+    cars = get_sorted_cars(sort_by)
+    return render_template('index.html', cars=cars)
+
 
