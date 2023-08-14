@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 {% include "header.html" %}
-<body>
+<body class="white-background">
 {% include "menu_bar.html" %}
 
 
@@ -16,26 +16,37 @@
         </select>
     </div>
 
+<hr>
     <div class="car-list">
         {% for car in cars %}
             <div class="car-card">
-                <a href="{{ url_for('car_details', car_id=car.id) }}">
-                    <img src="{{ car.image_url }}" alt="{{ car.model }}" class="car-image">
-                    <div class="car-details">
-                        <h3 class="car-title">{{ car.name }} {{ car.model }}</h3>
-                        <p class="car-price">${{ car.price }}</p>
-                        <p class="car-description">{{ car.description }}</p>
-                        <p class="car-description">{{ car.user.name }}</p>
-                        <ul class="car-features">
-                            <li>{{ car.year }}</li>
-                            <li>{{ car.mileage }} miles</li>
-                            <li>{{ car.engine }}</li>
-                        </ul>
+                <img src="{{ car.image_url }}" alt="{{ car.model }}" class="car-image">
+                <div class="car-details">
+                    <h3 class="car-title">{{ car.name }} {{ car.model }}</h3>
+                    <p class="car-price">Ціна: ${{ car.price }}</p>
+                    <div class="car-description">
+                        <p>{{ car.description }}</p>
+                        <p>Власник: {{ car.user.name }}</p>
                     </div>
-                </a>
+                    <div class="car-features">
+                        <div class="left-column">
+                            <p>Рік випуску: {{ car.year }}</p>
+                            <p>Пробіг: {{ car.mileage }} miles</p>
+                        </div>
+                        <div class="right-column">
+                            <p>Двигун: {{ car.engine }}</p>
+                            <p>Тип палива: Дизель</p>
+                        </div>
+                    </div>
+                </div>
+                            <a href="{{ url_for('car_details', car_id=car.id) }}" class="details-button">Деталі</a>
+
             </div>
+
         {% endfor %}
     </div>
+
+
 </div>
 
 

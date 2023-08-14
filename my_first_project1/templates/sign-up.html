@@ -1,26 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 {% include "header.html" %}
-<body>
+<body class="white-background">
 {% include "menu_bar.html" %}
 
-    <div class="container">
-        <form action="/sign-up" method="post">
-            <div class="form-group">
-                <label for="username">Name</label>
-                <input type="text" class="form-control" id="username" name="username" placeholder="Ivan">
-            </div>
-            <div class="form-group">
-                <label for="phone_number">Phone number</label>
-                <input type="text" class="form-control" id="phone_number" name="phone_number" placeholder="st.Gorodocka">
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="text" class="form-control" id="password" name="password" placeholder="150">
-            </div>
+<div class="container">
+    <div class="login-page">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo_autorization.jpeg') }}" alt="Logo">
+        </div>
+        <div class="autorization">
+            <form action="/sign-up" class="form_logging" method="post">
+                <div class="logging_text">
+                    <h6 class="text_log">Реєстрація</h6>
+                    <h6 class="text_log_n">VAG-SHPK</h6>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-logging" id="username" name="username" placeholder="Ваше ім'я">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-logging" id="phone_number" name="phone_number" placeholder="Телефон">
+                    {% if phone_error %}
+                        <p class="error-message">{{ phone_error }}</p>
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-logging" id="password" name="password" placeholder="Пароль">
+                </div>
+                <button type="submit" class="btn-logging">Зареєструватися</button>
+                <div class="another_log">
+                    <p>Вже маєте аккаунт? <a href="/login">Увійдіть</a>
+                    </p>
+                </div>
 
-            <button type="submit" class="btn btn-primary">Save Saloon</button>
-        </form>
+
+                <div class="contact-info-log">
+                    <p>Виникли питання?</p>
+                    <p>Служба турботи про користувачів:</p>
+                    <p>(067) 431-82-29, 0-800-21-00-12, (0432) 555-213</p>
+                </div>
+            </form>
+
+
+        </div>
+
+
     </div>
 
 </body>
