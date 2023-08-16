@@ -60,7 +60,6 @@ select#model {
 }
 
 
-
 select:focus {
     outline: none;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
@@ -85,8 +84,6 @@ select option + option {
 select:not(:focus) {
     position: static;
 }
-
-
 
 
 .menu-items {
@@ -169,16 +166,21 @@ select:not(:focus) {
 
 .car-image {
     width: 100%;
-    height: auto;
+    height: 60%;
 }
 
 .car-details {
-    padding: 10px;
+    padding: 9px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
 }
+
+.car-description {
+    margin: 5px 0; /* Налаштуйте бажані значення відступів */
+}
+
 
 .car-features {
     list-style: none;
@@ -187,7 +189,7 @@ select:not(:focus) {
     justify-content: space-between;
     font-size: 12px;
     color: #666;
-    margin-top: auto;
+    margin-top: 0;
 }
 
 .left-column, .right-column {
@@ -267,11 +269,11 @@ button:hover {
 
 .no-bg {
     background: none !important;
-    margin-top:10px;
+    margin-top: 10px;
 }
 
-.add_car_info{
-    font-size:20px;
+.add_car_info {
+    font-size: 20px;
 }
 
 
@@ -329,14 +331,14 @@ button:hover {
 }
 
 
-#add_car_btn{
+#add_car_btn {
     display: flex;
     align-items: center;
     gap: 10px;
     /* Вирівнюємо кнопки зправа */
 }
 
-#add_car_btn{
+#add_car_btn {
     padding: 10px 20px;
     background-color: #333;
     color: #fff;
@@ -349,9 +351,6 @@ button:hover {
     background-color: #ffc107;
     color: #333;
 }
-
-
-
 
 
 /* Стилі для кнопок в меню */
@@ -377,66 +376,129 @@ button:hover {
 }
 
 
+/* Стилі для основного контейнера */
+
+
 .container_user {
-    margin-top: 70px;
-    background-color: #fff;
+    display: flex;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    width: 100%;
-    height: auto;
-    margin: auto;
-    transition: width 0.3s ease-in-out;
+
+
 }
 
-.user-card {
+
+.car-card-user {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     overflow: hidden;
-    padding: 20px;
-    margin: 20px 0;
+    width: 70%;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
 }
 
-.user-details {
-    flex: 1;
-    padding-right: 20px;
+.user_info {
+    float: left;
+    width: 40%;
+    padding: 20px;
+    border-radius: 10px;
+    margin-right: 20px;
+
 }
 
-.user-avatar {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    object-fit: cover;
+.user_ads {
+    float: right;
+    width: 60%;
+    padding: 20px;
+    border-radius: 10px;
+
 }
 
-.user-info {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.user-phone {
-    font-size: 14px;
-    color: #666;
-}
-
-.user-ads {
-    flex: 2;
-}
-
-.user-ads ul {
-    list-style: none;
+.user_ads ul {
+    list-style-type: none;
     padding: 0;
 }
 
-.user-ads li {
+.user_ads ul li {
     margin-bottom: 10px;
-    font-size: 16px;
 }
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+.icon-image {
+    max-height: 20px;
+}
+
+
+.user_car-list {
+    text-align: center;
+    max-width: 100%;
+}
+
+.user_car-items {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+
+
+}
+
+
+.user_car-image-container {
+    width: 100%;
+    height: 60%;
+}
+
+.user_car-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user_car-details {
+    padding: 9px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.user_car-title {
+    margin-bottom: 5px;
+}
+.a_user_car-title:hover{
+    color: #ffc107
+}
+
+.a_user_car-title{
+    color:black;
+    font-size: 30px;
+}
+.user_car-price {
+    margin-bottom: 5px;
+}
+
+.user_car-actions {
+    display: flex;
+    gap: 50px;
+    padding: 5px;
+}
+
+.icon-image1 {
+    max-height: 30px;
+    width: 30px;
+}
+
 
 /* Залиште інші стилі без змін */
 .sort-options {
@@ -454,82 +516,6 @@ button:hover {
 
 .sort-option:hover {
     background-color: #ccc;
-}
-
-
-.slider-container {
-    background: linear-gradient(149deg, rgb(247, 0, 255) 0%, rgb(255, 145, 0) 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-}
-
-.slider {
-    width: 100%;
-    max-width: 600px;
-    height: 400px;
-    margin: 20px;
-    text-align: center;
-    border-radius: 20px;
-    overflow: hidden;
-    position: relative;
-}
-
-.slides {
-    display: flex;
-    overflow-x: scroll;
-    position: relative;
-    scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
-}
-
-.slide:nth-of-type(even) {
-    background-color: rgb(250, 246, 212);
-}
-
-.slide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-    width: 100%;
-    height: 400px;
-    margin-right: 0px;
-    box-sizing: border-box;
-    background: white;
-    transform-origin: center center;
-    transform: scale(1);
-    scroll-snap-align: center;
-}
-
-.slide__text {
-    font-size: 40px;
-    font-weight: bold;
-    font-family: sans-serif;
-}
-
-.slide a {
-    position: absolute;
-    top: 48%;
-    width: 35px;
-    height: 35px;
-    border: solid black;
-    border-width: 0 4px 4px 0;
-    padding: 3px;
-    box-sizing: border-box;
-}
-
-a.slide__prev {
-    transform: rotate(135deg);
-    -webkit-transform: rotate(135deg);
-    left: 5%;
-}
-
-a.slide__next {
-    transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
-    right: 5%;
 }
 
 

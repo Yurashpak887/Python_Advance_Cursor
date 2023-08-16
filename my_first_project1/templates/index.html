@@ -11,12 +11,12 @@
             <option value="/" class="sort-option">Сортування</option>
             <option value="/?sort_by=price_asc" class="sort-option">Ціна (зростаюча)</option>
             <option value="/?sort_by=price_desc" class="sort-option">Ціна (спадаюча)</option>
-            <option value="/?sort_by=date_old" class="sort-option">Дата (старі)</option>
-            <option value="/?sort_by=date_new" class="sort-option">Дата (нові)</option>
+            <option value="/?sort_by=date_old" class="sort-option">Дата (нові)</option>
+            <option value="/?sort_by=date_new" class="sort-option">Дата (старі)</option>
         </select>
     </div>
 
-<hr>
+    <hr>
     <div class="car-list">
         {% for car in cars %}
             <div class="car-card">
@@ -25,8 +25,9 @@
                     <h3 class="car-title">{{ car.name }} {{ car.model }}</h3>
                     <p class="car-price">Ціна: ${{ car.price }}</p>
                     <div class="car-description">
+                        <p style="font-size: 10px;">Створене: {{ car.registration_date }}</p>
                         <p>{{ car.description }}</p>
-                        <p>Власник: {{ car.user.name }}</p>
+                        <p style="font-size: 10px;">Власник: {{ car.user.name }}</p>
                     </div>
                     <div class="car-features">
                         <div class="left-column">
@@ -39,7 +40,7 @@
                         </div>
                     </div>
                 </div>
-                            <a href="{{ url_for('car_details', car_id=car.id) }}" class="details-button">Деталі</a>
+                <a href="{{ url_for('car_details', car_id=car.id) }}" class="details-button">Деталі</a>
 
             </div>
 

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include "header.html" %}
+<body class="white-background">
+{% include "menu_bar.html" %}
+
+
+<div class="container">
+    <form action="/edit-car/{{ car.id }}" method="post" enctype="multipart/form-data" class="form-control no-bg">
+
+        <p>Заповніть інформацію про ваше авто:</p>
+        <h2 class='add_car_info'>1. Добавте фотографії до вашого оголошення</h2>
+
+        <label for="image">Image:</label>
+        <input type="file" id="image" name="image" accept="image/*" required>
+        <div id="image-preview" class="image-preview">
+            <img id="preview-image" src="{{ car.image_url }}" alt="Preview">
+            <span id="remove-image" class="remove-icon">&times;</span>
+        </div>
+        <label id="upload-button" class="btn-logging" for="image">Upload Image</label>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var imageInput = document.getElementById("image");
+                var previewImage = document.getElementById("preview-image");
+                var removeImage = document.getElementById("remove-image");
+                var imagePreview = document.getElementById("image-preview");
+
+                // ... Ініціалізація для попереднього перегляду зображення
+
+                var markSelect = document.getElementById("mark");
+                var modelSelect = document.getElementById("model");
+
+                markSelect.addEventListener("change", function () {
+                    var selectedMark = this.value;
+                    if (selectedMark === "") {
+                        modelSelect.innerHTML = '<option value="" disabled selected>Select Model</option>';
+                        modelSelect.disabled = true;
+                        return;
+                    }
+                    fetch(`/get_models/${selectedMark}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            updateModelSelect(data);
+                        })
+                        .catch(error => console.error('Error fetching models:', error));
+                });
+
+                function updateModelSelect(models) {
+                    modelSelect.innerHTML = '<option value="" disabled selected>Select Model</option>';
+                    for (var i = 0; i < models.length; i++) {
+                        var model = models[i];
+                        var option = document.createElement("option");
+                        option.value = model.id;
+                        option.textContent = model.name;
+                        if (model.id === {{ car.model_id }}) {  // Додайте цей рядок
+                            option.selected = true;  // Додайте цей рядок
+                        }  // Додайте цей блок
+                        modelSelect.appendChild(option);
+                    }
+                    modelSelect.disabled = false;
+                }
+
+                // ... Інші функції та код
+            });
+        </script>
+
+        <h2 class='add_car_info'>2. Основна інформація</h2>
+
+<label for="mark">Mark:</label>
+<select id="mark" name="mark" required>
+    <option value="">Select Mark</option>
+    {% for mark in marks %}
+        <option value="{{ mark.id }}"
+                {% if mark.id == car_with_relations.mark.id %}selected{% endif %}>{{ mark.name }}</option>
+    {% endfor %}
+</select><br><br>
+
+<label for="model">Model:</label>
+<select id="model" name="model" required>
+    <option value="" disabled>Select Model</option>
+    {% for model in models %}
+        <option value="{{ model.id }}"
+                {% if model.id == car_with_relations.model.id %}selected{% endif %}>{{ model.name }}</option>
+    {% endfor %}
+</select><br><br>
+
+
+
+        <script>
+            var markSelect = document.getElementById("mark");
+            var modelSelect = document.getElementById("model");
+
+            markSelect.addEventListener("change", function () {
+                var selectedMark = this.value;
+                if (selectedMark === "") {
+                    modelSelect.innerHTML = '<option value="" disabled selected>Select Model</option>';
+                    modelSelect.disabled = true;
+                    return;
+                }
+                fetch(`/get_models/${selectedMark}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        updateModelSelect(data);
+                    })
+                    .catch(error => console.error('Error fetching models:', error));
+            });
+
+            function updateModelSelect(models) {
+                modelSelect.innerHTML = '<option value="" disabled selected>Select Model</option>';
+                for (var i = 0; i < models.length; i++) {
+                    var model = models[i];
+                    var option = document.createElement("option");
+                    option.value = model.id;
+                    option.textContent = model.name;
+                    modelSelect.appendChild(option);
+                }
+                modelSelect.disabled = false;
+            }
+        </script>
+
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" value="{{ car.price }}" required><br><br>
+
+        <label for="year">Year:</label>
+        <input type="number" id="year" name="year" value="{{ car.year }}" required><br><br>
+
+        <label for="mileage">Mileage:</label>
+        <input type="number" id="mileage" name="mileage" value="{{ car.mileage }}" step="100" required><br><br>
+
+        <label for="engine">Engine:</label>
+        <input type="number" id="engine" name="engine" value="{{ car.engine }}" step="0.1" required><br><br>
+
+        <h2 class='add_car_info'>2. Опис, характеристики</h2>
+
+        <label for="power">Потужність (кс):</label>
+        <input type="number" id="power" name="power" value="{{ car.power }}" step="10" required><br><br>
+
+        <label for="color">Колір:</label>
+        <select id="color" name="color" required>
+            <option value="" disabled>Виберіть колір</option>
+            <option value="red" {% if car.color == 'red' %}selected{% endif %}>Червоний</option>
+            <option value="" disabled selected>Виберіть колір</option>
+            <option value="red">Червоний</option>
+            <option value="blue">Синій</option>
+            <option value="green">Зелений</option>
+            <option value="black">Чорний</option>
+            <option value="white">Білий</option>
+            <option value="silver">Срібний</option>
+            <option value="gray">Сірий</option>
+            <option value="gold">Золотий</option>
+            <option value="orange">Помаранчевий</option>
+            <option value="yellow">Жовтий</option>
+            <option value="brown">Коричневий</option>
+            <option value="purple">Пурпурний</option>
+        </select><br><br>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" rows="4" required>{{ car.description }}</textarea><br><br>
+
+        <button type="submit" id="add_car_btn">Update Car</button>
+    </form>
+
+
+</div>

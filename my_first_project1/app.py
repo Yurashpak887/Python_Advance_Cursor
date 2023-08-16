@@ -6,6 +6,7 @@ from flask import render_template
 app = Flask(__name__)
 app.config.from_object("config.Config")
 app.secret_key = "blablabla"
+app.static_folder = 'static'
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
