@@ -58,8 +58,31 @@ def login():
     return render_template('login.html')
 
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def main():
     sort_by = request.args.get('sort_by', 'price_asc')
-    cars = get_sorted_cars(sort_by)
-    return render_template('index.html', cars=cars)
+    selected_mark = request.args.get('selected_mark')
+    selected_model_id = request.args.get('selected_model')  # Отримуємо ID моделі, а не ім'я
+    selected_year_from = request.args.get("year_from")
+    selected_year_to = request.args.get("year_to")
+    selected_mileage_from = request.args.get("mileage_from")
+    selected_mileage_to = request.args.get("mileage_to")
+
+    marks = Mark.query.all()
+    models_data = []
+
+    if selected_mark:
+        mark = Mark.query.filter_by(name=selected_mark).first()
+        if mark:
+            models_data = get_models_data(mark.id)  # Отримуємо дані моделей для вибраної марки
+
+    cars_list = get_сars(selected_mark, selected_model_id, selected_year_from, selected_year_to)
+
+    cars = get_sorted_cars(sort_by, cars_list)
+    count_of_ads = count_of_all_car(cars)
+    count_of_cars_day = count_of_cars_last_day(cars)
+
+    return render_template('index.html', cars=cars, count_of_ads=count_of_ads, count_of_cars_day=count_of_cars_day,
+                           marks=marks, models_data=models_data, selected_mark=selected_mark,
+                           selected_model_id=selected_model_id, selected_year_from=selected_year_from)
+

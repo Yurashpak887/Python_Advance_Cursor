@@ -20,12 +20,32 @@ class Car(db.Model):
     registration_date = db.Column(db.DateTime, default=db.func.now())
 
 
+    @property
+    def serialize(self):
+        return {
+            'id':self.id,
+            'name':self.name,
+            'model':self.model,
+            'price':self.price,
+            'year':self.year,
+            'mileage':self.mileage,
+            'engine':self.engine,
+            'power':self.power,
+            'color':self.color,
+            'description':self.description,
+            'image_url':self.image_url,
+            'user_id':self.user_id
+        }
+
+
 class User(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String(255), nullable=False)
     phone_number = db.Column(db.Integer, nullable=False, unique=True)
     password = db.Column(db.String(255), nullable=False)
     registration_date = db.Column(db.DateTime, default=db.func.now())
+
+
 
 
 

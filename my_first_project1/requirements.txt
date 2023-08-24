@@ -21,3 +21,4 @@ Werkzeug==2.3.6
 zipp==3.16.2
 requests
 gunicorn
+FLASK-RESTful
