@@ -25,10 +25,6 @@ def delete_car(car_id):
     return redirect(url_for('get_info'))
 
 
-from flask import render_templaпte, request
-from sqlalchemy.orm import joinedload
-
-
 
 
 

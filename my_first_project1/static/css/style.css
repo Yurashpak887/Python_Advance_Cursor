@@ -23,7 +23,7 @@ body {
 }
 
 .range-input input {
-    width: 80px; /* Змініть належним чином ширину вводу за потребою */
+    width: 60px; /* Змініть належним чином ширину вводу за потребою */
 }
 
 
@@ -65,10 +65,6 @@ select {
     top: 0; /* Верхній край вікна браузера */
     z-index: 1; /* Забезпечуємо правильний порядок накладання */
 }
-
-
-
-
 
 
 select#mark,
@@ -237,61 +233,65 @@ select:not(:focus) {
 }
 
 
-
-
-.car-search{
+.car-search {
     list-style: none;
     display: flex;
     justify-content: space-between;
     font-size: 12px;
     max-width: 100%;
-    background-color: #333;
     overflow: hidden; /* Це для "очищення" float-схеми */
-        border-radius: 10px;
+    border-radius: 0 0 10px 10px; /* Задаємо радіус для нижніх кутів */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     padding: 0;
 }
 
 
-
-
-
-
-
-.left-section{
+.left-section {
     width: 50%;
-    padding: 3%;
+    padding: 3% 5% 5% 5%;
+    position: relative;
+
+
 
 }
 
 .right-section {
     width: 50%;
-    padding: 3%;
+    padding: 3% 5% 5% 5%;
 }
 
 .clear-button {
-    width: 40%;
-    float: right;
-    background-color: lightgray;
+    width: 100%;
+    background-color: #333;
     justify-content: center;
     display: flex;
-    align-items: center;
+    align-items: center; /* Додайте вирівнювання по вертикалі */
     padding: 8px 16px;
-    border-radius: 5px;
     font-size: 14px;
     font-weight: bold;
     text-decoration: none;
-    margin-left: auto;
-    margin-top: -10px; /* Зсув вгору */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: white;
+    transition: background-color 0.3s, color 0.3s; /* Додайте переходи для фону і кольору тексту */
+}
+
+.clear-button:hover {
+    background-color: #ffc107;
+    color: #333;
 }
 
 
 
+.search-form{
 
+}
 
 
 #search-form select {
-    margin-bottom: 2%; /* Додайте відступ вниз між select елементами */
+    margin-bottom: 3%; /* Додайте відступ вниз між select елементами */
 }
 
 h2 {
@@ -458,8 +458,18 @@ button:hover {
 .container_user {
     display: flex;
     padding: 20px;
+}
 
 
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 
@@ -479,6 +489,8 @@ button:hover {
     padding: 20px;
     border-radius: 10px;
     margin-right: 20px;
+    animation: fadeInRight 1s forwards;
+
 
 }
 
@@ -521,6 +533,11 @@ button:hover {
     flex-wrap: wrap;
     align-items: flex-start;
     gap: 20px;
+
+
+}
+
+.user_car-item {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
 
@@ -552,14 +569,16 @@ button:hover {
 .user_car-title {
     margin-bottom: 5px;
 }
-.a_user_car-title:hover{
+
+.a_user_car-title:hover {
     color: #ffc107
 }
 
-.a_user_car-title{
-    color:black;
+.a_user_car-title {
+    color: black;
     font-size: 30px;
 }
+
 .user_car-price {
     margin-bottom: 5px;
 }
@@ -576,8 +595,8 @@ button:hover {
 }
 
 
-.statistics{
-    margin-top:20px;
+.statistics {
+    margin-top: 20px;
 }
 
 /* Залиште інші стилі без змін */
@@ -740,16 +759,41 @@ button:hover {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: fadeInRight 1s forwards;
 }
 
 .logo {
-    width: 60%; /* Розмір блоку з логотипом */
-    /* Додайте стилі для логотипу, наприклад, зображення */
+    width: 60%;
+    animation: fadeInLeft 1s forwards;
 }
 
 .autorization {
-    width: 40%; /* Розмір блоку з формою авторизації */
-    /* Додайте стилі для блоку з формою */
+    width: 40%;
+    animation: fadeInRight 1s forwards;
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 

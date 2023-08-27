@@ -14,10 +14,12 @@ class Car(db.Model):
     power = db.Column(db.Integer, nullable=False)
     color = db.Column(db.String(255), nullable=False)
     description = db.Column(db.String(255), nullable=False)
+    fuel = db.Column(db.String(255), nullable=False)
     image_url = db.Column(db.String(255))  # Колонка для збереження URL зображення
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     user = db.relationship('User', backref=db.backref('cars', lazy=True))
     registration_date = db.Column(db.DateTime, default=db.func.now())
+
 
 
     @property
@@ -44,7 +46,12 @@ class User(db.Model):
     phone_number = db.Column(db.Integer, nullable=False, unique=True)
     password = db.Column(db.String(255), nullable=False)
     registration_date = db.Column(db.DateTime, default=db.func.now())
+    country_id = db.Column(db.Integer, db.ForeignKey('country.id'), nullable=False)
 
+class Country(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(255), nullable=False)
+    users = db.relationship('User', backref='country', lazy=True)
 
 
 

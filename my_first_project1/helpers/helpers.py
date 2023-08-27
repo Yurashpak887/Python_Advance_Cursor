@@ -9,7 +9,7 @@ def get_models_by_mark_id(mark_id):
 # helpers/sorting.py
 
 
-def get_сars(selected_mark=None, selected_model_id=None, selected_year_from=None, selected_year_to=None):
+def get_сars(selected_mark=None, selected_model_id=None, selected_year_from=None, selected_year_to=None, selected_mileage_from=None, selected_mileage_to=None):
     query = Car.query
 
     if selected_mark is not None:
@@ -23,6 +23,11 @@ def get_сars(selected_mark=None, selected_model_id=None, selected_year_from=Non
     if selected_year_to:
         query = query.filter(Car.year <= selected_year_to)
 
+    if selected_mileage_from:
+        query = query.filter(Car.mileage >= selected_mileage_from)
+
+    if selected_mileage_to:
+        query = query.filter(Car.mileage <= selected_mileage_to)
 
     return query.all()
 

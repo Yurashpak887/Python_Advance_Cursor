@@ -21,20 +21,24 @@ def sign_up():
         name = request.form.get('username')
         phone_number = request.form.get('phone_number')
         password = request.form.get('password')
-
+        countries = request.form.get('selected_country')
+        print(countries)
+        country = Country.query.all()
         phone_pattern = r'^0\d{9}$'
         if not re.match(phone_pattern, phone_number):
             phone_error = "Неправильний номер телефону. Вказано некоректний формат."
             return render_template('sign-up.html', phone_error=phone_error)
 
-        user = User(name=name, phone_number=phone_number, password=password)
+        user = User(name=name, phone_number=phone_number, password=password, country_id  = countries)
         db.session.add(user)
         db.session.commit()
 
         session['user'] = user.id
         return redirect('/')
     else:
-        return render_template('sign-up.html')
+        country = Country.query.all()
+
+        return render_template('sign-up.html', country=country)
 
 
 @app.route('/session-close')
@@ -65,9 +69,12 @@ def main():
     selected_model_id = request.args.get('selected_model')  # Отримуємо ID моделі, а не ім'я
     selected_year_from = request.args.get("year_from")
     selected_year_to = request.args.get("year_to")
+
     selected_mileage_from = request.args.get("mileage_from")
     selected_mileage_to = request.args.get("mileage_to")
 
+
+    #country = Country.query.all()
     marks = Mark.query.all()
     models_data = []
 
@@ -76,7 +83,9 @@ def main():
         if mark:
             models_data = get_models_data(mark.id)  # Отримуємо дані моделей для вибраної марки
 
-    cars_list = get_сars(selected_mark, selected_model_id, selected_year_from, selected_year_to)
+    cars_list = get_сars(selected_mark, selected_model_id, selected_year_from, selected_year_to, selected_mileage_from, selected_mileage_to)
+
+    country = Country.query.all()
 
     cars = get_sorted_cars(sort_by, cars_list)
     count_of_ads = count_of_all_car(cars)
@@ -84,5 +93,5 @@ def main():
 
     return render_template('index.html', cars=cars, count_of_ads=count_of_ads, count_of_cars_day=count_of_cars_day,
                            marks=marks, models_data=models_data, selected_mark=selected_mark,
-                           selected_model_id=selected_model_id, selected_year_from=selected_year_from)
+                           selected_model_id=selected_model_id, selected_year_from=selected_year_from, country=country)
 

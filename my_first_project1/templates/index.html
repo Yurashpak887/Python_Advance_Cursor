@@ -8,83 +8,128 @@
 <div class="container">
     <h6 style="font-size: 40px;font-family: Arial, sans-serif; ">Авто в наявності</h6>
 
-<div class="search-form">
-    <form class="car-search" id="search-form" action="{{ url_for('main') }}" method="GET">
-        <div class="left-section">
-            <h6 style="color:white;">Марка</h6>
-            <select id="mark" name="selected_mark" onchange="updateModelOptions(); submitForm();">
-                <option value="" disabled selected hidden>Виберіть марку</option>
-                {% for mark in marks %}
-                    <option value="{{ mark.name }}"
-                            {% if selected_mark == mark.name %}selected{% endif %}>{{ mark.name }}</option>
-                {% endfor %}
-            </select>
+    <div class="search-form">
+        <form class="car-search" id="search-form" action="{{ url_for('main') }}" method="GET">
 
-            <h6 style="color:white;">Модель</h6>
-            <select id="selected_model" name="selected_model" onchange="submitForm();">
-                <option value="" disabled selected hidden>Виберіть модель</option>
-                {% for model in models_data %}
-                    <option value="{{ model.name }}"
-                            {% if selected_model_id == model.name %}selected{% endif %}>{{ model.name }}</option>
-                {% endfor %}
-            </select>
-        </div>
+            <div class="left-section">
+                <select id="mark" name="selected_mark" onchange="updateModelOptions(); submitForm();">
+                    <option value="" disabled selected hidden>Виберіть марку</option>
+                    {% for mark in marks %}
+                        <option value="{{ mark.name }}"
+                                {% if selected_mark == mark.name %}selected{% endif %}>Вибрана
+                            марка: {{ mark.name }}</option>
+                    {% endfor %}
+                </select>
 
-        <div class="right-section">
-            <h6 style="color: white;">Рік виробництва</h6>
-            <div class="range-input">
-                <input type="number" id="year_from" name="year_from"
-                       value="{{ request.args.get('year_from', '') }}"
-                       placeholder="Від" min="1970" onchange="submitForm()">
+                <div class="range-input">
+                    <h6 style="width:100%;">Рік випуску</h6>
 
-                <span>-</span>
-                <input type="number" id="year_to" name="year_to"
-                       value="{{ request.args.get('year_to', '') }}"
-                       placeholder="До" onchange="submitForm()">
+                    <input type="number" id="year_from" name="year_from"
+                           value="{{ request.args.get('year_from', '') }}"
+                           placeholder="Від" min="1970" onchange="submitForm()">
+
+                    <span>-</span>
+                    <input type="number" id="year_to" name="year_to"
+                           value="{{ request.args.get('year_to', '') }}"
+                           placeholder="До" onchange="submitForm()">
+                </div>
+
+                <div class="range-input">
+                    <h6 style="width:44%;">Локація</h6>
+
+                </div>
+                <a href="{{ url_for('main') }}" class="clear-button">Очистити</a>
+
             </div>
 
-            <h6 style="color: white;">Пробіг</h6>
-            <div class="range-input">
-                <input type="number" id="mileage_from" name="mileage_from"
-                       value="{{ request.args.get('mileage_from', '') }}"
-                       placeholder="Від" step="10" min="0" onchange="submitForm()">
+            <div class="right-section">
+                <select id="selected_model" name="selected_model" onchange="submitForm();">
+                    <option value="" disabled selected hidden>Виберіть модель</option>
+                    {% for model in models_data %}
+                        <option value="{{ model.name }}"
+                                {% if selected_model_id == model.name %}selected{% endif %}>Вибрана
+                            модель: {{ model.name }}</option>
+                    {% endfor %}
+                </select>
 
-                <span>-</span>
-                <input type="number" id="mileage_to" name="mileage_to"
-                       value="{{ request.args.get('mileage_to', '') }}"
-                       placeholder="До" onchange="submitForm()">
+
+                <div class="range-input">
+                    <h6 style="width:100%;">Пробіг</h6>
+
+                    <input type="number" id="mileage_from" name="mileage_from"
+                           value="{{ request.args.get('mileage_from', '') }}"
+                           placeholder="Від" step="10" min="0" onchange="submitForm()">
+
+                    <span>-</span>
+                    <input type="number" id="mileage_to" name="mileage_to"
+                           value="{{ request.args.get('mileage_to', '') }}"
+                           placeholder="До" onchange="submitForm()">
+                </div>
+
+
+                <div class="range-input">
+                    <h6 style="width:44%;">Тип палива</h6>
+                    <select id="fuel_type" name="selected_fuel_type" onchange="submitForm();">
+                        <option value="" disabled hidden>Виберіть тип палива</option>
+                        <option value="Бензин"
+                                {% if request.args.get('selected_fuel_type') == 'Бензин' %}selected{% endif %}>Бензин
+                        </option>
+                        <option value="Дизель"
+                                {% if request.args.get('selected_fuel_type') == 'Дизель' %}selected{% endif %}>Дизель
+                        </option>
+                        <option value=""
+                                {% if not request.args.get('selected_fuel_type') %}selected{% endif %}>Будь-який
+                        </option>
+                    </select>
+                </div>
+
+
             </div>
-        </div>
-    </form>
-    <a href="{{ url_for('main') }}" class="clear-button">Очистити</a>
-</div>
+        </form>
+    </div>
 
-<script>
-    var markSelect = document.getElementById('mark');
-    var modelSelect = document.getElementById('selected_model');
-    var yearFromInput = document.getElementById('year_from');
-    var yearToInput = document.getElementById('year_to');
-    var mileageFromInput = document.getElementById('mileage_from');
-    var mileageToInput = document.getElementById('mileage_to');
+    <script>
+        var markSelect = document.getElementById('mark');
+        var modelSelect = document.getElementById('selected_model');
 
-    function updateModelOptions() {
-        var selectedMark = markSelect.value;
-        if (!selectedMark) {
-            modelSelect.selectedIndex = 0; // Скидаємо вибір моделі на "Виберіть модель"
-            submitForm(); // Оновлюємо форму після скидання вибору моделі
+        markSelect.addEventListener('change', function () {
+            var selectedMark = markSelect.value;
+            var selectedModel = modelSelect.value;
+
+            // Змінюємо значення моделі на "Виберіть модель" при зміні марки
+            modelSelect.selectedIndex = 0;
+
+            // Оновлюємо форму
+            submitForm();
+        });
+    </script>
+
+
+    <script>
+        var markSelect = document.getElementById('mark');
+        var modelSelect = document.getElementById('selected_model');
+        var yearFromInput = document.getElementById('year_from');
+        var yearToInput = document.getElementById('year_to');
+        var mileageFromInput = document.getElementById('mileage_from');
+        var mileageToInput = document.getElementById('mileage_to');
+
+        function updateModelOptions() {
+            var selectedMark = markSelect.value;
+            if (!selectedMark) {
+                modelSelect.selectedIndex = 0; // Скидаємо вибір моделі на "Виберіть модель"
+                submitForm(); // Оновлюємо форму після скидання вибору моделі
+            }
         }
-    }
 
-    // Викликаємо функцію при завантаженні сторінки для початкового стану
-    updateModelOptions();
-</script>
+        // Викликаємо функцію при завантаженні сторінки для початкового стану
+        updateModelOptions();
+    </script>
 
-<script>
-    function submitForm() {
-        document.getElementById("search-form").submit();
-    }
-</script>
-
+    <script>
+        function submitForm() {
+            document.getElementById("search-form").submit();
+        }
+    </script>
 
 
     <hr>
@@ -107,6 +152,7 @@
         </select>
     </div>
 
+
     <div class="statistics">
         <p>{{ count_of_ads }} пропозиції ● За останній день: {{ count_of_cars_day }}</p>
     </div>
@@ -121,9 +167,12 @@
                     <p class="car-price">Ціна: ${{ car.price }}</p>
                     <div class="car-description">
                         <p style="font-size: 10px;">Створене: {{ car.registration_date }}</p>
-                        <p>{{ car.description }}</p>
+                        <p>{{ car.description|truncate(30, '...') }}</p>
                         <p style="font-size: 10px;">Власник: {{ car.user.name }}</p>
+                        <p style="font-size: 10px;">Локація: {{ car.user.country.name }}</p>
+
                     </div>
+
                     <div class="car-features">
                         <div class="left-column">
                             <p>Рік випуску: {{ car.year }}</p>

@@ -7,7 +7,7 @@
 <div class="container">
     <div class="login-page">
         <div class="logo">
-            <img src="{{ url_for('static', filename='images/logo_autorization.jpeg') }}" alt="Logo">
+            <img src="{{ url_for('static', filename='images/logo_img-removebg-preview.png') }}" alt="Logo">
         </div>
         <div class="autorization">
             <form action="/sign-up" class="form_logging" method="post">
@@ -25,8 +25,21 @@
                     {% endif %}
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-logging" id="password" name="password" placeholder="Пароль">
+                    <input type="password" class="form-control" id="password" name="password"
+                           placeholder="Введіть пароль">
                 </div>
+
+
+                <div class="form-group">
+                    <label for="country">Країна</label>
+                    <select class="form-control" id="selected_country" name="selected_country">
+                        <option value="">Оберіть країну</option>
+                        {% for country_item in country %}
+                            <option value="{{ country_item.id }}">{{ country_item.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
                 <button type="submit" class="btn-logging">Зареєструватися</button>
                 <div class="another_log">
                     <p>Вже маєте аккаунт? <a href="/login">Увійдіть</a>
