@@ -1,6 +1,6 @@
 from models.models import *
 from datetime import datetime, timedelta
-
+from sqlalchemy import desc
 
 def get_models_by_mark_id(mark_id):
     models = Modelcar.query.filter_by(mark_id=mark_id).all()
@@ -9,12 +9,15 @@ def get_models_by_mark_id(mark_id):
 # helpers/sorting.py
 
 
-def get_сars(selected_mark=None, selected_model_id=None, selected_year_from=None, selected_year_to=None, selected_mileage_from=None, selected_mileage_to=None):
+
+
+def get_сars(selected_mark=None, selected_model_id=None, selected_year_from=None, selected_year_to=None, selected_mileage_from=None, selected_mileage_to=None, selected_fuel=None, selected_country=None, sort_by_location=False):
+
     query = Car.query
 
-    if selected_mark is not None:
+    if selected_mark:
         query = query.filter_by(name=selected_mark)
-    if selected_model_id and selected_model_id is not None:
+    if selected_model_id:
         query = query.filter_by(model=selected_model_id)
 
     if selected_year_from:
@@ -29,7 +32,17 @@ def get_сars(selected_mark=None, selected_model_id=None, selected_year_from=Non
     if selected_mileage_to:
         query = query.filter(Car.mileage <= selected_mileage_to)
 
+    if selected_fuel:
+        query = query.filter_by(fuel=selected_fuel)
+
+    if selected_country:
+        query = query.join(User).join(Country).filter(Country.name == selected_country)
+
+    if sort_by_location:
+        query = query.join(User).join(Country).order_by(User.country_id)
+
     return query.all()
+
 
 
 
@@ -78,3 +91,9 @@ def count_of_cars_last_day(selected_cars=None):
     ).count()
 
     return car_count_of_day
+
+
+def count_user_ads(user_id):
+    user_ads_count = Car.query.filter_by(user_id=user_id).count()
+    return user_ads_count
+

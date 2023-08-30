@@ -26,7 +26,7 @@ def add_car():
         engine = request.form.get('engine')
         power = request.form.get('power')
         color = request.form.get('color')
-
+        fuel = request.form.get('fuel')
         # Збереження зображення
         image = request.files['image']
         if image:
@@ -44,7 +44,7 @@ def add_car():
 
         # Збереження даних в БД
         new_car = Car(name=mark.name, model=model.name, price=price, description=description,
-                      year=year, mileage=mileage, engine=engine, power=power, color=color, image_url=image_path, user_id=author_id)
+                      year=year, mileage=mileage, engine=engine, power=power, color=color, fuel = fuel, image_url=image_path, user_id=author_id)
         db.session.add(new_car)
         db.session.commit()
 

@@ -6,7 +6,9 @@
 
 
 <div class="container">
+
     <h6 style="font-size: 40px;font-family: Arial, sans-serif; ">Авто в наявності</h6>
+
 
     <div class="search-form">
         <form class="car-search" id="search-form" action="{{ url_for('main') }}" method="GET">
@@ -36,8 +38,23 @@
 
                 <div class="range-input">
                     <h6 style="width:44%;">Локація</h6>
+                    <select id="country" name="selected_country" onchange="updateModelOptions(); submitForm();">
+                    <option value="" disabled selected hidden>Виберіть місто</option>
+                        {% for country in countries %}
+                            <option value="{{ country.name }}"
+                                    {% if selected_country == country.name %}selected{% endif %}>
+                                {{ country.name }}</option>
+                        {% endfor %}
+
+                    </select>
+
+
+
+
+
 
                 </div>
+
                 <a href="{{ url_for('main') }}" class="clear-button">Очистити</a>
 
             </div>
@@ -150,6 +167,8 @@
                     class="sort-option">Дата (старі)
             </option>
         </select>
+
+
     </div>
 
 
@@ -180,7 +199,7 @@
                         </div>
                         <div class="right-column">
                             <p>Двигун: {{ car.engine }}</p>
-                            <p>Тип палива: Дизель</p>
+                            <p>Тип палива: {{ car.fuel }}</p>
                         </div>
                     </div>
                 </div>

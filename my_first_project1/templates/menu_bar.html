@@ -3,15 +3,24 @@
     <div class="menu-items">
 
         {% if user %}
-        <a href="/">Б.у авто</a>
-        <a href="/add_car">Add Car</a>
-        <a href="#">Контактна інформація</a>
+            <a href="/">Б.у авто</a>
+            <a href="/add_car">Add Car</a>
+            <a href="#">Контактна інформація</a>
         {% else %}
             <a href="/">Б.у авто</a>
             <a href="#">Контактна інформація</a>
         {% endif %}
     </div>
 
+
+    <div class="infocourse">{% if dollar_rate %}
+
+        <p>{{ dollar_rate}} </p>
+        <p>{{ euro_rate  }}</p>
+    {% else %}
+        <p>Dollar rate not available</p>
+    {% endif %}
+    </div>
     <div class="button-sign">
         {% if user %}
             Hello, {{ user.name }}

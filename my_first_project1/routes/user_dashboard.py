@@ -8,11 +8,12 @@ from helpers.helpers import *
 def get_info():
     if 'user' in session:
         user = User.query.get(session['user'])
+        country=Country.query.all()
         sorted_cars = request.args.get('sort_by', default=None)
         cars = Car.query.filter_by(
             user_id=user.id).all()  # Отримати всі автомобілі, які належать авторизованому корвачеві
         cars = get_sorted_cars(sorted_cars,cars)
-        return render_template('user-dashboard.html', user=user, cars=cars, get_sorted_cars=get_sorted_cars)
+        return render_template('user-dashboard.html', user=user, cars=cars, get_sorted_cars=get_sorted_cars, country=country)
     return redirect('/login')  # Якщо користувач не авторизований, перенаправити його на сторінку входу
 
 

@@ -1,15 +1,18 @@
 from app import app, db
 from flask import render_template, request, redirect, session
-from models.models import Car, User, Modelcar, Mark
+from models.models import Car, User, Modelcar, Mark, Country
 import os
-
+from helpers.helpers import *
 STATIC_FOLDER = '/static'
 
 @app.route('/car/<int:car_id>', methods=['GET', 'POST'])
 def car_details(car_id):
     if request.method == 'GET':
         car = Car.query.get(car_id)
-        return render_template('car_details.html', car=car)
+        id_user = car.user_id
+        count_of_user_ads = count_user_ads(id_user)
+        country=Country.query.all()
+        return render_template('car_details.html', car=car, country=country, count_of_user_ads=count_of_user_ads)
     else:
         return redirect("/")
 
