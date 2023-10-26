@@ -30,19 +30,17 @@
 
                 <div class="details-car-info">
                     <h6>{{ car.name }} {{ car.model }}</h6>
+                    <p>Перегляди: {{ views }}</p>
 
-                    <p>Місто: {{ car.user.country.name }}</p>
+                        <p id="font_price">$ {{ car.price }}</p>
+                        <p>Місто: {{ car.user.country.name }}</p>
 
-                    <p1 id="font_price">$ {{ car.price }}</p1>
                     <hr id="hrka">
                     <ul class="details-car-features">
                         <li class="left-item">Пробіг: {{ car.mileage }} miles</li>
-                        <li class="right-item">Year: {{ car.year }} </li>
-
-                        <li class="left-item">Engine: {{ car.engine }}</li>
-                        <li class="right-item">Color: {{ car.color }}</li>
-
-
+                        <li class="right-item">Рік: {{ car.year }} </li>
+                        <li class="left-item">Двигун: {{ car.engine }}</li>
+                        <li class="right-item">Колір: {{ car.color }}</li>
                     </ul>
                     <hr id="hrka">
 

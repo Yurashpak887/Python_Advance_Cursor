@@ -5,12 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9331e1eb-9abb-4581-b998-a347ae8fdcbe" name="Changes" comment="17.08">
-      <change afterPath="$PROJECT_DIR$/helpers/get_course.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/mysql/#ib_16384_0.dblwr" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mysql/#ib_16384_0.dblwr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/mysql/#ib_16384_1.dblwr" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mysql/#ib_16384_1.dblwr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/mysql/#innodb_redo/#ib_redo10" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mysql/#innodb_redo/#ib_redo10" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/mysql/#innodb_redo/#ib_redo11_tmp" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mysql/#innodb_redo/#ib_redo11_tmp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/mysql/#innodb_redo/#ib_redo10" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/mysql/#innodb_redo/#ib_redo11_tmp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/mysql/#innodb_redo/#ib_redo12_tmp" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mysql/#innodb_redo/#ib_redo12_tmp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/mysql/#innodb_redo/#ib_redo13_tmp" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mysql/#innodb_redo/#ib_redo13_tmp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/mysql/#innodb_redo/#ib_redo14_tmp" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mysql/#innodb_redo/#ib_redo14_tmp" afterDir="false" />
@@ -52,7 +54,31 @@
       <change beforePath="$PROJECT_DIR$/docker/mysql/#innodb_temp/temp_8.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mysql/#innodb_temp/temp_8.ibt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/mysql/#innodb_temp/temp_9.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mysql/#innodb_temp/temp_9.ibt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/mysql/auto.cnf" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mysql/auto.cnf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/mysql/binlog.000022" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mysql/binlog.000022" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/mysql/binlog.000001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/mysql/binlog.000002" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/mysql/binlog.000003" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/mysql/binlog.000004" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/mysql/binlog.000005" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/mysql/binlog.000006" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/mysql/binlog.000007" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/mysql/binlog.000008" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/mysql/binlog.000009" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/mysql/binlog.000010" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/mysql/binlog.000011" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/mysql/binlog.000012" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/mysql/binlog.000013" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/mysql/binlog.000014" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/mysql/binlog.000015" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/mysql/binlog.000016" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/mysql/binlog.000017" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/mysql/binlog.000018" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/mysql/binlog.000019" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/mysql/binlog.000020" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/mysql/binlog.000021" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/mysql/binlog.000022" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/mysql/binlog.000023" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/mysql/binlog.000024" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/mysql/binlog.000025" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/mysql/binlog.index" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mysql/binlog.index" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/mysql/ib_buffer_pool" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mysql/ib_buffer_pool" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/mysql/ibdata1" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mysql/ibdata1" afterDir="false" />
@@ -62,18 +88,21 @@
       <change beforePath="$PROJECT_DIR$/docker/mysql/undo_002" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mysql/undo_002" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/mysql/yura01/alembic_version.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mysql/yura01/alembic_version.ibd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/mysql/yura01/car.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mysql/yura01/car.ibd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/mysql/yura01/country.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mysql/yura01/country.ibd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/mysql/yura01/user.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mysql/yura01/user.ibd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/helpers/helpers.py" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/helpers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/6ad9b6dedc4b_22_08_22.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/models/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/add_car.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/add_car.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/car_details.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/car_details.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/user_dashboard.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user_dashboard.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/add_car.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/add_car.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/car_details.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/car_details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/edit_car.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/edit_car.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/header.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/menu_bar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/menu_bar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/sign-up.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sign-up.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/user-dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user-dashboard.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -84,8 +113,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -202,7 +231,24 @@
       <workItem from="1693392680958" duration="1215000" />
       <workItem from="1693399979825" duration="20000" />
       <workItem from="1693404974148" duration="19000" />
-      <workItem from="1693422488273" duration="1511000" />
+      <workItem from="1693422488273" duration="5302000" />
+      <workItem from="1693571257938" duration="11323000" />
+      <workItem from="1693664986758" duration="7000" />
+      <workItem from="1693683397430" duration="5595000" />
+      <workItem from="1693743037543" duration="7000" />
+      <workItem from="1693745959359" duration="5084000" />
+      <workItem from="1693856196014" duration="606000" />
+      <workItem from="1694087347987" duration="48000" />
+      <workItem from="1694087514030" duration="20000" />
+      <workItem from="1694176748584" duration="4614000" />
+      <workItem from="1694370009292" duration="11000" />
+      <workItem from="1694597787672" duration="110000" />
+      <workItem from="1694598037116" duration="40000" />
+      <workItem from="1694598161067" duration="155000" />
+      <workItem from="1697894691280" duration="162000" />
+      <workItem from="1697898748130" duration="44000" />
+      <workItem from="1697898807994" duration="34000" />
+      <workItem from="1697899918265" duration="141000" />
     </task>
     <task id="LOCAL-00001" summary="8.10">
       <option name="closed" value="true" />

@@ -87,7 +87,7 @@ def count_of_cars_last_day(selected_cars=None):
     car_count_of_day = Car.query.filter(
         Car.registration_date >= yesterday,
         Car.registration_date < today,
-        Car.id.in_([car.id for car in selected_cars])  # Виправлена умова
+        Car.id.in_([car.id for car in selected_cars])
     ).count()
 
     return car_count_of_day
@@ -97,3 +97,8 @@ def count_user_ads(user_id):
     user_ads_count = Car.query.filter_by(user_id=user_id).count()
     return user_ads_count
 
+
+
+def allowed_file(filename):
+    ALLOWED_EXTENSIONS = {'jpg', 'jpeg', 'png', 'gif'}
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS

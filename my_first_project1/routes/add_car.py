@@ -38,11 +38,9 @@ def add_car():
         if 'user' in session:
             author_id = session['user']
 
-        # Знаходимо об'єкти Mark та Modelcar на основі отриманих id
         mark = Mark.query.get(mark_id)
         model = Modelcar.query.get(model_id)
 
-        # Збереження даних в БД
         new_car = Car(name=mark.name, model=model.name, price=price, description=description,
                       year=year, mileage=mileage, engine=engine, power=power, color=color, fuel = fuel, image_url=image_path, user_id=author_id)
         db.session.add(new_car)

@@ -6,10 +6,7 @@
 
 
 <div class="container">
-
     <h6 style="font-size: 40px;font-family: Arial, sans-serif; ">Авто в наявності</h6>
-
-
     <div class="search-form">
         <form class="car-search" id="search-form" action="{{ url_for('main') }}" method="GET">
 
@@ -18,8 +15,7 @@
                     <option value="" disabled selected hidden>Виберіть марку</option>
                     {% for mark in marks %}
                         <option value="{{ mark.name }}"
-                                {% if selected_mark == mark.name %}selected{% endif %}>Вибрана
-                            марка: {{ mark.name }}</option>
+                                {% if selected_mark == mark.name %}selected{% endif %}>{{ mark.name }}</option>
                     {% endfor %}
                 </select>
 
@@ -39,7 +35,7 @@
                 <div class="range-input">
                     <h6 style="width:44%;">Локація</h6>
                     <select id="country" name="selected_country" onchange="updateModelOptions(); submitForm();">
-                    <option value="" disabled selected hidden>Виберіть місто</option>
+                        <option value="" disabled selected hidden>Виберіть місто</option>
                         {% for country in countries %}
                             <option value="{{ country.name }}"
                                     {% if selected_country == country.name %}selected{% endif %}>
@@ -49,14 +45,8 @@
                     </select>
 
 
-
-
-
-
                 </div>
-
                 <a href="{{ url_for('main') }}" class="clear-button">Очистити</a>
-
             </div>
 
             <div class="right-section">
@@ -64,11 +54,9 @@
                     <option value="" disabled selected hidden>Виберіть модель</option>
                     {% for model in models_data %}
                         <option value="{{ model.name }}"
-                                {% if selected_model_id == model.name %}selected{% endif %}>Вибрана
-                            модель: {{ model.name }}</option>
+                                {% if selected_model_id == model.name %}selected{% endif %}>{{ model.name }}</option>
                     {% endfor %}
                 </select>
-
 
                 <div class="range-input">
                     <h6 style="width:100%;">Пробіг</h6>
@@ -104,49 +92,6 @@
             </div>
         </form>
     </div>
-
-    <script>
-        var markSelect = document.getElementById('mark');
-        var modelSelect = document.getElementById('selected_model');
-
-        markSelect.addEventListener('change', function () {
-            var selectedMark = markSelect.value;
-            var selectedModel = modelSelect.value;
-
-            // Змінюємо значення моделі на "Виберіть модель" при зміні марки
-            modelSelect.selectedIndex = 0;
-
-            // Оновлюємо форму
-            submitForm();
-        });
-    </script>
-
-
-    <script>
-        var markSelect = document.getElementById('mark');
-        var modelSelect = document.getElementById('selected_model');
-        var yearFromInput = document.getElementById('year_from');
-        var yearToInput = document.getElementById('year_to');
-        var mileageFromInput = document.getElementById('mileage_from');
-        var mileageToInput = document.getElementById('mileage_to');
-
-        function updateModelOptions() {
-            var selectedMark = markSelect.value;
-            if (!selectedMark) {
-                modelSelect.selectedIndex = 0; // Скидаємо вибір моделі на "Виберіть модель"
-                submitForm(); // Оновлюємо форму після скидання вибору моделі
-            }
-        }
-
-        // Викликаємо функцію при завантаженні сторінки для початкового стану
-        updateModelOptions();
-    </script>
-
-    <script>
-        function submitForm() {
-            document.getElementById("search-form").submit();
-        }
-    </script>
 
 
     <hr>
@@ -185,7 +130,7 @@
                     <h3 class="car-title">{{ car.name }} {{ car.model }}</h3>
                     <p class="car-price">Ціна: ${{ car.price }}</p>
                     <div class="car-description">
-                        <p style="font-size: 10px;">Створене: {{ car.registration_date }}</p>
+                        <p style="font-size: 10px;">Створене: {{ car.registration_date.strftime('%Y-%m-%d') }}</p>
                         <p>{{ car.description|truncate(30, '...') }}</p>
                         <p style="font-size: 10px;">Власник: {{ car.user.name }}</p>
                         <p style="font-size: 10px;">Локація: {{ car.user.country.name }}</p>
@@ -195,7 +140,7 @@
                     <div class="car-features">
                         <div class="left-column">
                             <p>Рік випуску: {{ car.year }}</p>
-                            <p>Пробіг: {{ car.mileage }} miles</p>
+                            <p>Пробіг: {{ car.mileage }} км</p>
                         </div>
                         <div class="right-column">
                             <p>Двигун: {{ car.engine }}</p>

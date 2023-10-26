@@ -3,6 +3,7 @@
 {% include "header.html" %}
 <body class="white-background">
 {% include "menu_bar.html" %}
+
 <div class="container">
     <form action="/add_car" method="post" enctype="multipart/form-data" class="form-control no-bg">
 
@@ -18,39 +19,12 @@
         <label id="upload-button" class="btn-logging" for="image">Upload Image</label>
 
 
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                var imageInput = document.getElementById("image");
-                var previewImage = document.getElementById("preview-image");
-                var removeImage = document.getElementById("remove-image");
-                var imagePreview = document.getElementById("image-preview");
 
-                imageInput.addEventListener("change", function () {
-                    var file = this.files[0];
-                    if (file) {
-                        var reader = new FileReader();
-                        reader.onload = function (e) {
-                            previewImage.src = e.target.result;
-                            imagePreview.style.display = "block";
-                        };
-                        reader.readAsDataURL(file);
-                    }
-                });
-
-                removeImage.addEventListener("click", function () {
-                    imageInput.value = null;
-                    previewImage.src = "#";
-                    imagePreview.style.display = "none";
-                });
-            });
-
-
-        </script>
 
 
         <h2 class='add_car_info'>2. Основна інформація</h2>
 
-        <label for="mark">Mark:</label>
+        <label for="mark">Марка:</label>
         <select id="mark" name="mark" required>
             <option value="" disabled selected>Select Mark</option>
             {% for mark in marks %}
@@ -58,55 +32,25 @@
             {% endfor %}
         </select><br><br>
 
-        <label for="model">Model:</label>
+        <label for="model">Модель:</label>
         <select id="model" name="model" required disabled>
             <option value="" disabled selected>Select Model</option>
         </select><br><br>
 
-        <script>
-            var markSelect = document.getElementById("mark");
-            var modelSelect = document.getElementById("model");
-
-            markSelect.addEventListener("change", function () {
-                var selectedMark = this.value;
-                if (selectedMark === "") {
-                    modelSelect.innerHTML = '<option value="" disabled selected>Select Model</option>';
-                    modelSelect.disabled = true;
-                    return;
-                }
-                fetch(`/get_models/${selectedMark}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        updateModelSelect(data);
-                    })
-                    .catch(error => console.error('Error fetching models:', error));
-            });
-
-            function updateModelSelect(models) {
-                modelSelect.innerHTML = '<option value="" disabled selected>Select Model</option>';
-                for (var i = 0; i < models.length; i++) {
-                    var model = models[i];
-                    var option = document.createElement("option");
-                    option.value = model.id;
-                    option.textContent = model.name;
-                    modelSelect.appendChild(option);
-                }
-                modelSelect.disabled = false;
-            }
-        </script>
 
 
-        <label for="price">Price:</label>
+
+        <label for="price">Ціна:</label>
         <input type="number" id="price" name="price" required><br><br>
 
 
-        <label for="year">Year:</label>
+        <label for="year">Рік випуску:</label>
         <input type="number" id="year" name="year" required><br><br>
 
-        <label for="mileage">Mileage:</label>
+        <label for="mileage">Пробіг (у км):</label>
         <input type="number" id="mileage" name="mileage" step="100" required><br><br>
 
-        <label for="engine">Engine:</label>
+        <label for="engine">Двигун:</label>
         <input type="number" id="engine" name="engine" step="0.1" required><br><br>
 
         <h2 class='add_car_info'>2. Опис, характеристики</h2>

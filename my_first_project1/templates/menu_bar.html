@@ -4,7 +4,7 @@
 
         {% if user %}
             <a href="/">Б.у авто</a>
-            <a href="/add_car">Add Car</a>
+            <a href="/add_car">Додати авто</a>
             <a href="#">Контактна інформація</a>
         {% else %}
             <a href="/">Б.у авто</a>
@@ -23,12 +23,12 @@
     </div>
     <div class="button-sign">
         {% if user %}
-            Hello, {{ user.name }}
-            <a class="button-close-session" href="/session-close" type="button">Exit</a>
-            <a class="button-close-session" href="/user-dashboard" type="button">Cabinet</a>
+            Привіт, {{ user.name }}!
+            <a class="button-close-session" href="/session-close" type="button">Вийти</a>
+            <a class="button-close-session" href="/user-dashboard" type="button">Кабінет</a>
         {% else %}
-            <a class="button-sign-up" href="/sign-up" type="button">Sign up</a>
-            <a class="button-login" href="/login" type="button">Login</a>
+            <a class="button-sign-up" href="/sign-up" type="button">Зареєструватись</a>
+            <a class="button-login" href="/login" type="button">Увійти</a>
         {% endif %}
     </div>
 

@@ -1,9 +1,10 @@
 from app import app, db
 import re
-from flask import render_template, request, redirect, session
+from flask import render_template, request, redirect, session, flash
 from models.models import Car, User, Modelcar, Mark
 from helpers.helpers import *
 from helpers.get_course import *
+from sqlalchemy.exc import IntegrityError  # Додали імпорт для перехоплення IntegrityError
 
 UPLOAD_FOLDER = './static/images'
 
@@ -22,30 +23,53 @@ def inject_currency_rates():
     euro_rate = get_euro_rate()
     return dict(dollar_rate=dollar_rate, euro_rate=euro_rate)
 
+from sqlalchemy.exc import IntegrityError  # Додали імпорт для перехоплення IntegrityError
+
 @app.route('/sign-up', methods=['POST', 'GET'])
 def sign_up():
     if request.method == 'POST':
-        name = request.form.get('username')
-        phone_number = request.form.get('phone_number')
-        password = request.form.get('password')
-        countries = request.form.get('selected_country')
-        print(countries)
-        country = Country.query.all()
-        phone_pattern = r'^0\d{9}$'
-        if not re.match(phone_pattern, phone_number):
-            phone_error = "Неправильний номер телефону. Вказано некоректний формат."
-            return render_template('sign-up.html', phone_error=phone_error)
+        try:
+            country = Country.query.all()
+            name = request.form.get('username')
+            phone_number = request.form.get('phone_number')
+            password = request.form.get('password')
+            countries = request.form.get('selected_country')
 
-        user = User(name=name, phone_number=phone_number, password=password, country_id  = countries)
-        db.session.add(user)
-        db.session.commit()
+            name_pattern = r'^[А-ЯІЇЄҐ][а-яіїєґ]+\s[А-ЯІЇЄҐ][а-яіїєґ]+$'
+            phone_pattern = r'^0\d{9}$'
 
-        session['user'] = user.id
-        return redirect('/')
+            name_error = None
+            phone_error = None
+
+            if not re.match(name_pattern, name):
+                name_error = 'Вкажіть у форматі "Ім\'я Прізвище"'
+
+
+            if not re.match(phone_pattern, phone_number):
+                phone_error = "Неправильний номер телефону. Вказано некоректний формат."
+
+            if name_error or phone_error:
+                return render_template('sign-up.html', name_error=name_error, phone_error=phone_error, country=country)
+
+            user = User(name=name, phone_number=phone_number, password=password, country_id=countries)
+            db.session.add(user)
+            db.session.commit()
+
+            session['user'] = user.id
+
+            # Додайте цей рядок для додавання сповіщення
+            flash('Реєстрація успішна', 'success')
+
+            return render_template('/user-dashboard.html')
+        except IntegrityError as e:
+            # Перехоплення IntegrityError відбувається, коли виникає конфлікт обмежень бази даних, наприклад, унікального ключа
+            db.session.rollback()  # Відкатуємо транзакцію, щоб не збити базу даних
+            flash('Такий користувач вже існує', 'danger')  # Додаємо сповіщення про помилку
+            return render_template('sign-up.html', country=country, integrity_error=True)  # Додаємо параметр integrity_error
     else:
         country = Country.query.all()
-
         return render_template('sign-up.html', country=country)
+
 
 
 @app.route('/session-close')
@@ -80,6 +104,7 @@ def main():
     selected_mileage_from = request.args.get("mileage_from")
     selected_mileage_to = request.args.get("mileage_to")
     selected_country = request.args.get("selected_country")
+    flash('Реєстрація успішна', 'success')  # Додайте цей рядок для додавання сповіщення
 
     #country = Country.query.all()
     marks = Mark.query.all()
@@ -97,7 +122,6 @@ def main():
     cars = get_sorted_cars(sort_by, cars_list)
     count_of_ads = count_of_all_car(cars)
     count_of_cars_day = count_of_cars_last_day(cars)
-
     dol_course = get_dollar_rate()
     eur_course = get_euro_rate()
     return render_template('index.html', cars=cars, count_of_ads=count_of_ads, count_of_cars_day=count_of_cars_day,

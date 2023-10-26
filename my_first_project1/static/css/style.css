@@ -166,6 +166,7 @@ select:not(:focus) {
     max-width: 100%;
     width: 100%; /* Додайте цей рядок */
     margin: 0; /* Додайте цей рядок */
+        row-gap: 80px;
 }
 
 .car-card {
@@ -694,6 +695,28 @@ button:hover {
     height: 100%;
 }
 
+/* Стилі для сповіщення */
+.flash-messages {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 9999;
+    width: 300px; /* Задайте ширину сповіщення за вашим вибором */
+    background-color: #333; /* Задайте кольори, які вам подобаються */
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    display: none; /* По замовчуванню приховувати сповіщення */
+}
+
+
+.flash-messages {
+    /* Решта стилів */
+    display: block; /* Завжди відображати сповіщення */
+}
+
+
+
 .image-container img {
     width: 100%;
     max-height: 100%;
@@ -710,6 +733,17 @@ button:hover {
     overflow: auto; /* Включаємо вертикальний скролінг при необхідності */
 }
 
+
+.details-car-f1{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-family: 'Arial', sans-serif;
+    font-size: 15px;
+    white-space: nowrap;
+    max-font-size: 20px;
+}
 
 #hrka {
     border: none;
@@ -756,11 +790,14 @@ button:hover {
     margin-top: 1px;
 }
 
+
+
 #font_price {
     font-size: 25px;
     color: rgb(255, 170, 0);
     font-weight: bold;
 }
+
 
 .else_description {
     margin-top: 5px;

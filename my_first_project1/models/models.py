@@ -13,7 +13,7 @@ class Car(db.Model):
     engine = db.Column(db.Numeric(precision=5, scale=2, asdecimal=False), nullable=False)
     power = db.Column(db.Integer, nullable=False)
     color = db.Column(db.String(255), nullable=False)
-    description = db.Column(db.String(255), nullable=False)
+    description = db.Column(db.String(1000), nullable=False)
     fuel = db.Column(db.String(255), nullable=False)
     image_url = db.Column(db.String(255))  # Колонка для збереження URL зображення
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)

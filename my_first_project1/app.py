@@ -11,6 +11,7 @@ app.static_folder = 'static'
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 api = Api(app)
+page_views = {}
 
 with app.app_context():
     from routes import *

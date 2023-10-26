@@ -15,9 +15,12 @@
                     <p><img src="/static/images/calendar-days-regular.svg"
                             class="icon-image">: {{ user.registration_date }}</p>
 
+
                     <p><img src="/static/images/phone-solid.svg" class="icon-image">
-                        : {{ user.phone_number }}</p>
-                    <p>{{ user.country.name }}</p>
+                        : 0{{ user.phone_number }}</p>
+                    <p><img src="/static/images/loc.svg" class="icon-image">
+                        : {{ user.country.name }}</p>
+
                 </section>
             {% else %}
                 <p>You are not logged in.</p>
@@ -41,8 +44,6 @@
             </div>
 
 
-
-
             <div class="user_car-list">
                 {% if cars %}
                     <div class="user_car-items">
@@ -55,11 +56,13 @@
                                     <a class="a_user_car-title" href="{{ url_for('car_details', car_id=car.id) }}"
                                        class="user_action-button">{{ car.name }} {{ car.model }}</a>
                                     <p class="user_car-price">Ціна: ${{ car.price }}</p>
-                                    <p class="user_car-price">Дата публікації: {{ car.registration_date }}</p>
+                                    <p class="user_car-price">Дата публікації: {{ car.registration_date.strftime('%Y-%m-%d') }}</p>
+
 
                                     <div class="user_car-actions">
-                                        <a href="{{ url_for('delete_car', car_id=car.id) }}" class="icon-image1"><img
+                                        <a href="{{ url_for('edit_car', car_id=car.id) }}" class="icon-image1"><img
                                                 src="/static/images/pen-to-square-solid.svg" alt="Edit"></a>
+
 
                                         <a href="{{ url_for('delete_car', car_id=car.id) }}"
                                            class="icon-image1"><img src="/static/images/trash-can-solid.svg"
@@ -74,7 +77,7 @@
                     </div>
 
                 {% else %}
-                    <p>You haven't created any ads yet.</p>
+                    <p>У вас ще немає створених оголошень</p>
                 {% endif %}
             </div>
 
